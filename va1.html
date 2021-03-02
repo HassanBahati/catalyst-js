@@ -86,7 +86,7 @@
             "POST" is the preferred method. The "GET" method is insecure and exposes the submitted data to the URL.
             When using forms, you should specify the name of the file that will handle the form data, by using the "action" attribute.
         -->
-    <form name="userForm" class="form-style-9" action="#">
+    <form name="form" class="form-style-9" action="#">
       <ul>
         <li>
           <!-- Each form field should have a descriptive "name" attribute. -->
@@ -142,23 +142,20 @@
     <script>
             //   Define a function in JavaScript to access and validate the form field data.
               function validateForm(){
-                  var uName = document.userForm.userName;
-                  var uEmail = document.userForm.userEmail.value;
-                  var uPhone = document.userForm.userPhone.value;
-                  var uWeb = document.userForm.userWeb.value;
-                  var ufield = document.getElementsByClassName('field-style')
-                  if(uName.value == '' && uEmail == '' && uPhone == '' && uWeb == ''){
-                      ufield.focus();
-                      ufield.style.border = '2px solid red';
-                      // alert('You must fill in all fields!');
+                  var userName = document.form.userName;
+                  var userEmail = document.form.userEmail;
+                  var userPhone = document.form.userPhone;
+                  var userWeb = document.form.userWeb;
+ 
+                  if(userName.value == '' && userEmail.value == '' && userPhone.value == '' && userWeb.value == ''){
+                      userName.focus();
+                    //changing the color of borders to red when field is empty
+                      userName.style.border = '2px solid red';
                       return false;
                   }
-                  // console.log(fieldOne);
-                  // alert(fieldOne);
-
-                  // Homework: add conditions to test the input-status of the remaining fields and highlight any empty fields.
               }
     </script>
-    ​
   </body>
 </html>
+
+
