@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      html {
+        font-family: sans-serif;
+        color: #333;
+      }
+      body {
+        max-width: 500px;
+        margin: 0 auto;
+        padding: 0 15px;
+      }
+      div,
+      article {
+        padding: 10px;
+        margin: 5px;
+        border: 1px solid #dedede;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Access Elements in the Dom</h1>
+
+    <h2>ID (#demo)</h2>
+    <div id="demo">Access me by id</div>
+
+    <h2>Class (.demo)</h2>
+    <div class="demo">Access me by class (1)</div>
+    <div class="demo">Access me by class (2)</div>
+    <div class="demo">Access me by class (3)</div>
+
+    <h2>Tag (article)</h2>
+    <article>Access me by tag name (1)</article>
+    <article>Access me by tag name (2)</article>
+
+    <h2>Query Selector</h2>
+    <div id="demo-query">Accesss me by query</div>
+
+    <h2>Query selector All</h2>
+    <div class="demo-query-all">Access me by query all (1)</div>
+    <div class="demo-query-all">Access me by query all (2)</div>
+  </body>
+  <script>
+    //changing the border of element with id of demo
+    const demoId = document.getElementById('demo');
+    demoId.style.border = '3px solid purple';
+
+    //declared variable to store elemnet and then changing border
+    const demoClass = document.getElementsByClassName('demo');
+    //demoClass[0].style.border = '3px solid orange';
+
+    //looping through to style multiple elements at once
+    //length is the total number, size indexes the first element to zero
+    //length starts at 1 , size starts at 0
+    for (i = 0; i < demoClass.length; i++) {
+      demoClass[i].style.border = '2px solid orange';
+    }
+    //for tag name
+    const demoTag = document.getElementsByTagName('article');
+    for (i = 0; i < demoTag.length; i++) {
+      demoTag[i].style.border = '3px solid blue';
+    }
+
+    //for query selector
+    const demoQuery = document.querySelector('#demo-query');
+    demoQuery.style.border = '3px solid red';
+
+    //for query selector all
+    const allDemoQuery = document.querySelectorAll('.demo-query-all');
+    //allDemoQuery[1].style.border = '3px solid green';
+ 
+    //adding style to all the elements
+    allDemoQuery.forEach(query => {
+        query.style.border = '2px solid black';
+    })
+ </script>
+</html>

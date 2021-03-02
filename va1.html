@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link rel="stylesheet" href="Val1.css"/> -->
+    <title>Validation Exercise</title>
+    <style type="text/css">
+      .form-style-9 {
+        max-width: 450px;
+        background: #fafafa;
+        padding: 30px;
+        margin: 50px auto;
+        box-shadow: 1px 1px 25px rgba(0, 0, 0, 0.35);
+        border-radius: 10px;
+        border: 6px solid #305a72;
+      }
+      .form-style-9 ul {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+      }
+      .form-style-9 ul li {
+        display: block;
+        margin-bottom: 10px;
+        min-height: 35px;
+      }
+      .form-style-9 ul li .field-style {
+        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        padding: 8px;
+        outline: none;
+        border: 1px solid #b0cfe0;
+        -moz-transition: all 0.3s ease-in-out;
+        -ms-transition: all 0.3s ease-in-out;
+        -o-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
+      }
+      .form-style-9 ul li .field-style:focus {
+        box-shadow: 0 0 5px #b0cfe0;
+        border: 1px solid #b0cfe0;
+      }
+      .form-style-9 ul li .field-split {
+        width: 49%;
+      }
+      .form-style-9 ul li .field-full {
+        width: 100%;
+      }
+      .form-style-9 ul li input.align-left {
+        float: left;
+      }
+      .form-style-9 ul li input.align-right {
+        float: right;
+      }
+      .form-style-9 ul li textarea {
+        width: 100%;
+        height: 100px;
+      }
+      .form-style-9 ul li input[type='button'],
+      .form-style-9 ul li input[type='submit'] {
+        -moz-box-shadow: inset 0px 1px 0px 0px #3985b1;
+        -webkit-box-shadow: inset 0px 1px 0px 0px #3985b1;
+        box-shadow: inset 0px 1px 0px 0px #3985b1;
+        background-color: #216288;
+        border: 1px solid #17445e;
+        display: inline-block;
+        cursor: pointer;
+        color: #ffffff;
+        padding: 8px 18px;
+        text-decoration: none;
+        font: 12px Arial, Helvetica, sans-serif;
+      }
+      .form-style-9 ul li input[type='button']:hover,
+      .form-style-9 ul li input[type='submit']:hover {
+        background: linear-gradient(to bottom, #2d77a2 5%, #337da8 100%);
+        background-color: #28739e;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>User Feedback Form</h2>
+    <!-- 
+            A web browser sends form-data to a server using the "POST" or "GET" methods.
+            "POST" is the preferred method. The "GET" method is insecure and exposes the submitted data to the URL.
+            When using forms, you should specify the name of the file that will handle the form data, by using the "action" attribute.
+        -->
+    <form name="userForm" class="form-style-9" action="#">
+      <ul>
+        <li>
+          <!-- Each form field should have a descriptive "name" attribute. -->
+          <input
+            type="text"
+            name="userName"
+            class="field-style field-split align-left"
+            placeholder="Name"
+          />
+          <input
+            type="email"
+            name="userEmail"
+            class="field-style field-split align-right"
+            placeholder="Email"
+          />
+        </li>
+        <li>
+          <input
+            type="text"
+            name="userPhone"
+            class="field-style field-split align-left"
+            placeholder="Phone"
+          />
+          <input
+            type="url"
+            name="userWeb"
+            class="field-style field-split align-right"
+            placeholder="Website"
+          />
+        </li>
+        <li>
+          <input
+            type="text"
+            name="userSubject"
+            class="field-style field-full align-none"
+            placeholder="Subject"
+          />
+        </li>
+        <li>
+          <textarea
+            name="userMsg"
+            class="field-style"
+            placeholder="Message"
+          ></textarea>
+        </li>
+        <li>
+          <!-- "onclick" is an event handler that triggers the function validateForm() when the "Send Message" button is pressed. -->
+          <input type="submit" value="Send Message" onclick="validateForm()" />
+        </li>
+      </ul>
+    </form>
+    ​
+    <script>
+            //   Define a function in JavaScript to access and validate the form field data.
+              function validateForm(){
+                  var uName = document.userForm.userName;
+                  var uEmail = document.userForm.userEmail.value;
+                  var uPhone = document.userForm.userPhone.value;
+                  var uWeb = document.userForm.userWeb.value;
+                  var ufield = document.getElementsByClassName('field-style')
+                  if(uName.value == '' && uEmail == '' && uPhone == '' && uWeb == ''){
+                      ufield.focus();
+                      ufield.style.border = '2px solid red';
+                      // alert('You must fill in all fields!');
+                      return false;
+                  }
+                  // console.log(fieldOne);
+                  // alert(fieldOne);
+
+                  // Homework: add conditions to test the input-status of the remaining fields and highlight any empty fields.
+              }
+    </script>
+    ​
+  </body>
+</html>

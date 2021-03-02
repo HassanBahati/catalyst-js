@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Learning the DOM</title>
+  </head>
+  <body>
+    <h1>Document Object Model</h1>
+    <ul>
+      <li>Buy food</li>
+      <li>Take someone to school</li>
+    </ul>
+  </body>
+  <script>
+    //creating new paragraph , adding content to it
+    const paragraph = document.createElement("p");
+    paragraph.textContent = "am a new paragraph";
+    //adding new li
+    const toDoList = document.querySelector("ul");
+    const newToDoList = document.createElement("li");
+    newToDoList.textContent = "Do debugging assignment";
+
+    toDoList.appendChild(newToDoList);
+
+    const newList = document.createElement("li");
+    newList.textContent = "Going to the garden";
+
+    toDoList.appendChild(newList);
+
+    toDoList.insertBefore(newToDoList, toDoList.firstElementChild);
+    //removing the last child
+    toDoList.removeChild(toDoList.lastChild);
+  </script>
+</html>
