@@ -17,8 +17,9 @@ let validation = () => {
     //dont proceed to submit data , hold on
     return false;
   }
-  //setting all names to be strings no numbers in name
-  // for multiple name use /^[a-zA-Z].*[\s\.]*$/
+  /**   setting all names to be strings no numbers in name
+        for multiple name use /^[a-zA-Z].*[\s\.]*$/
+   **/
   var letters = /^[A-Za-z]+$/;
   if (name.value.match(letters)) {
     return true;
@@ -27,18 +28,17 @@ let validation = () => {
     name.style.border = '2px solid red';
     return false;
   }
-
   //vaidating email
   if (email.value == '') {
     email.style.border = '2px solid red';
     email.focus();
   }
-//setting format for email
+  //setting format for email
   let email1 = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
   if (email.value.match(email1)) {
     return true;
   } else {
-    alert('Please input a valid email');
-    email.style.border = '2px solid red';
-  }
+   alert('Please input a valid email');
+   email.style.border = '2px solid red';
+   }
 };
