@@ -8,9 +8,11 @@ let validation = () => {
   //returning red border when the user submits empty field for name
   if (name.value == '') {
     name.style.border = '2px solid red';
+    name.focus();
+    return false;
   }
   //setting minimum length of the name
-  let min = 4;
+  const min = 4;
   if (name.value.length < min) {
     alert('please input a name of more than four character');
     name.style.border = '2px solid red';
@@ -19,6 +21,10 @@ let validation = () => {
   }
   /**   setting all names to be strings no numbers in name
         for multiple name use /^[a-zA-Z].*[\s\.]*$/
+        regular expressions or regex
+          /^[0-9a-zA-Z]+$/;  to include both numbers and words
+          /^[0-9]+$/;  for numbers only 
+          for email 
    **/
   var letters = /^[A-Za-z]+$/;
   if (name.value.match(letters)) {
