@@ -1,12 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Event Listeners</title>
-</head>
-<body>
-    
-</body>
-</html>
+  </head>
+  <body>
+    <h1>Event listners by Osman buyondo</h1>
+    <button>Click Me</button>
+    <p>I will change</p>
+  </body>
+  <script>
+      const p = document.querySelector('p');
+      let button = document.querySelector('button');
+      //function changeText to help us change the text of paragraph
+      let changeText = () => {
+        //changnig the text in html, dont terminate when giving a value to a fucntion
+        p.textContent = 'I have changed because of an event property'
+      }
+
+      //when someone clicks perform the function changeText
+      button.addEventListener('click', changeText); 
+
+      let alertText = () => {
+        alert('I changed because of an alert');
+      }
+      //event by alert on double click
+      button.addEventListener('dblclick', alertText);
+  </script>
+</html>                       
+
+<!--
+    inline handling -- calling js functions to perform an action when an event happens
+    to keep watch of html ie when something happens do this 
+-->
